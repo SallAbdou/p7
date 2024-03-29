@@ -1,13 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test App</title>
+    <title>Les Petits Plats</title>
+    <link rel="stylesheet" href="./public/src/css/style.scss">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <header>
+      <div class="bg-cover bg-center w-screen h-screen" style="background-image: url('/background.png');">
+        <span class="flex items-center">
+          <img alt="les petits plats" src="./public/icons/title-logo.png"> 
+          <img alt="logo" src="./public/icons/logo.png">
+        </span>
+         <section>
+           <div id="search-title" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-anton text-4xl font-normal" style="color: #FFD15B; width: 890px;">
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES 
+            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+          </div>
+          
+          <div class="absolute top-2/3  left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-954 h-10 rounded-lg bg-white">
+            <input class="text-center w-full" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
+          </div>
+
+      </section>
+      </div>
+      
+     </header>
+     
+
   </body>
 </html>
