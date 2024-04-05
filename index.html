@@ -15,31 +15,30 @@
 
 <body>
   <header>
-    <div class="bg-cover bg-center w-screen h-screen" style="background-image: url('/background.png');">
-      <span class="flex items-center">
-        <img alt="les petits plats" src="/icons/title-logo.png">
-        <img alt="logo" src="/icons/logo.png">
-      </span>
-      <section>
-        <div id="search-title" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-anton text-4xl font-normal">
-         CHERCHEZ PARMI PLUS DE 1500 RECETTES
-          DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+    <nav>
+      <a class="logo" href="#">
+        <img alt="logo" src="/icons/title-logo.png">
+      </a>
+    </nav>
+    <div class="header-title">
+      <h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES
+        DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
+      <div class="main-search-bar-container">
+        <input id="main-search-bar" class="search-bar" placeholder="Rechercher une recette, un ingrédient, ..." />
+        <div class="loop-container">
+          <img src="/icons/searchicon.webp" alt="loop" />
         </div>
-
-        <div class="searchbar absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <input class=" w-full" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
-					<img src="./Public/icons/searchicon.webp" alt="bouton de recherche">
-
-        </div>
-      </section>
+        <img class="delete" src="/icons/x.svg" alt="delete" />
+      </div>
     </div>
-
   </header>
 
+  <main>
+    <section id="recipes-container">
+      <!-- Les cartes des recettes apparaitront ici -->
+    </section>
+  </main>
 
-  <section id="recipe-section">
-		<!-- Les cartes des recettes apparaitront ici -->
-	</section>
 
   <script type="module" src="./src/main.js"></script>
 </body>

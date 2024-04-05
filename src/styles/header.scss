@@ -1,36 +1,106 @@
+header {
+  position: relative;
+  height: 667px;
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center center;
 
-header{
-    section{
-        #search-title{
-            color:$yellow; 
-            width: 890px;
-        }
-     .searchbar{
-        width: 954px;
-      
-          input{
-           height: 54px;       
-           border-radius: 11px;
-           position: absolute;
-           color: $grey;
-            font-family: Manrope;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-           img{
-            position: absolute;
-            right: 4px;
-            border-radius: 10px;
-            background: $black;
-            padding: 12px;
-            width: 51px;
-            height: 52px;
-        }
+  nav {
+    position: absolute;
+    top: 35px;
+    left: 69px;
+
+    a {
+      img {
+        height: 26px;
       }
-    }    
+    }
   }
 
- 
+  .header-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
+    h1 {
+      font-family: 'Anton';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 66px;
+      text-align: center;
+      color: $yellow;
+      width: 50%;
+    }
+
+    .main-search-bar-container {
+      position: relative;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+
+      .search-bar {
+        width: 80%;
+        height: 72px;
+        border-radius: 11px;
+        background-color: $white;
+        border: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 35px;
+
+        color: $grey;
+        font-family: 'Manrope';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .loop-container {
+        width: 51px;
+        height: 52px;
+        border-radius: 10px;
+        background: $black;
+        position: absolute;
+        top: 10px;
+        right: 11.3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+          background: $yellow;
+
+          svg {
+            g {
+              circle {
+                stroke: $black;
+              }
+
+              line {
+                stroke: $black;
+              }
+            }
+
+          }
+        }
+
+
+      }
+
+      .delete {
+        position: absolute;
+        top: 28px;
+        right: 18%;
+        display: none;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}
