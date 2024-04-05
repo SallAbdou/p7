@@ -1,0 +1,36 @@
+
+header{
+    section{
+        #search-title{
+            color:$yellow; 
+            width: 890px;
+        }
+     .searchbar{
+        width: 954px;
+      
+          input{
+           height: 54px;       
+           border-radius: 11px;
+           position: absolute;
+           color: $grey;
+            font-family: Manrope;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+           img{
+            position: absolute;
+            right: 4px;
+            border-radius: 10px;
+            background: $black;
+            padding: 12px;
+            width: 51px;
+            height: 52px;
+        }
+      }
+    }    
+  }
+
+ 
+

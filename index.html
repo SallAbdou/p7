@@ -1,39 +1,47 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Les Petits Plats</title>
-    <link rel="stylesheet" href="./public/src/css/style.scss">
-    <link rel="stylesheet" href="./src/output.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
 
-  </head>
-  <body>
-    <header>
-      <div class="bg-cover bg-center w-screen h-screen" style="background-image: url('/background.png');">
-        <span class="flex items-center">
-          <img alt="les petits plats" src="./public/icons/title-logo.png"> 
-          <img alt="logo" src="./public/icons/logo.png">
-        </span>
-         <section>
-           <div id="search-title" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-anton text-4xl font-normal" style="color: #FFD15B; width: 890px;">
-            CHERCHEZ PARMI PLUS DE 1500 RECETTES 
-            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-          </div>
-          
-          <div class="absolute top-2/3  left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-954 h-10 rounded-lg bg-white">
-            <input class="text-center w-full" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Petits Plats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Manrope:wght@200..800&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap"
+    rel="stylesheet">
+</head>
 
+<body>
+  <header>
+    <div class="bg-cover bg-center w-screen h-screen" style="background-image: url('/background.png');">
+      <span class="flex items-center">
+        <img alt="les petits plats" src="/icons/title-logo.png">
+        <img alt="logo" src="/icons/logo.png">
+      </span>
+      <section>
+        <div id="search-title" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-anton text-4xl font-normal">
+         CHERCHEZ PARMI PLUS DE 1500 RECETTES
+          DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+        </div>
+
+        <div class="searchbar absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <input class=" w-full" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
+					<img src="./Public/icons/searchicon.webp" alt="bouton de recherche">
+
+        </div>
       </section>
-      </div>
-      
-     </header>
-     
+    </div>
 
-  </body>
+  </header>
+
+
+  <section id="recipe-section">
+		<!-- Les cartes des recettes apparaitront ici -->
+	</section>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
 </html>
