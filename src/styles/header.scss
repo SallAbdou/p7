@@ -90,15 +90,19 @@ header {
         }
 
 
-      }
-
-      .delete {
-        position: absolute;
-        top: 28px;
-        right: 18%;
-        display: none;
-        cursor: pointer;
-      }
+      }    
+        .delete {
+          position: absolute;
+          top: 28px;
+          right: 18%;
+          display: none; 
+          cursor: pointer;
+        
+          &.show { 
+            display: block;
+          }
+        }
+        
     }
 
   }
