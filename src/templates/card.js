@@ -58,3 +58,11 @@ export const createCard = data => {
 
   return card
 }
+
+export const displayErrorMessage = value => {
+  const message = document.createElement('span')
+  message.textContent = `« Aucune recette ne contient ‘${value}’ vous pouvez chercher « tarte aux pommes », « poisson », etc.`
+  message.classList.add('no-recipes-message')
+  // recipesContainer.appendChild(message)
+  return message
+}

@@ -8,5 +8,18 @@ body {
         padding-left: 10%;
         padding-right: 10%;
         min-height: 100vh;
+
+
+        #recipes-counter {
+            color: $black;
+            font-family: Anton;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            position: absolute;
+            top: 30px;
+            right: 10%;
+        }
     }
 }
