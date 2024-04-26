@@ -34,28 +34,63 @@
   </header>
 
   <main>
-    <div class="dropdown-filters">
-      <select id="dropdown-ingredients" class="ingrédient">  
-         <!-- Les cartes des recettes apparaitront ici -->
-      </select>
-    
-      <select id="dropdown-appareils">
-         <!-- Les cartes des recettes apparaitront ici -->
-      </select>
+
+    <section id="tags-container">
       
-      <select id="dropdown-ustensiles">
-         <!-- Les cartes des recettes apparaitront ici -->
-      </select>
-    </div>
-    
-    
+      <!-- Ici, j'ajouterai les tags -->
+
+    </section>
+
+    <section id="dropdown-container">
+      <div id="dropdown-ingredients" class="dropdown">
+        <span>Ingrédients</span>
+        <img src="/icons/arrow.png" alt="arrow">
+        <div class="collapsed">
+          <input id="ingredients-search-bar" class="search-bar">
+          <img class="delete" src="/icons/x.svg" alt="delete" />
+          <div class="loop-container">
+            <img src="/icons/loop_grey.svg" alt="loop" />
+          </div>
+          <section class="items-container">
+          </section>
+        </div>
+      </div>
+      <div id="dropdown-devices" class="dropdown">
+        <span>Appareils</span>
+        <img src="/icons/arrow.png" alt="arrow">
+        <div class="collapsed devices">
+          <input id="devices-search-bar" class="search-bar">
+          <img class="delete" src="/icons/x.svg" alt="delete" />
+          <div class="loop-container">
+            <img src="/icons/loop_grey.svg" alt="loop" />
+          </div>
+          <section class="items-container">
+          </section>
+        </div>
+      </div>
+      <div id="dropdown-ustensils" class="dropdown">
+        <span>Ustensiles</span>
+        <img src="/icons/arrow.png" alt="arrow">
+        <div class="collapsed ustensils">
+          <input id="ustensils-search-bar" class="search-bar">
+          <img class="delete" src="/icons/x.svg" alt="delete" />
+          <div class="loop-container">
+            <img src="/icons/loop_grey.svg" alt="loop" />
+          </div>
+          <section class="items-container">
+          </section>
+        </div>
+      </div>
+    </section>
+
+
     <div id="recipes-counter">50 recettes</div>
 
     <section id="recipes-container">
       <!-- Les cartes des recettes apparaitront ici -->
     </section>
 
-  
+
   </main>
 
   <script type="module" src="./src/main.js"></script>
