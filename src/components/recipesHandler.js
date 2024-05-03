@@ -11,18 +11,14 @@ export const getIngredients = (main = '', value = '') => {
     ingredients = [...new Set([...ingredients, ...element.ingredients.map(item => item.ingredient)])]
   })
 
-  return value.length >= 3 ? ingredients : ingredients
+  return value.length >= 3 ? ingredients.filter(item => item.toLowerCase().includes(value)) : ingredients
 }
 
 export const getDevices = (main = '', value = '') => {
   const recipes = getRecipes(main)
-  let devices = []
-  // Récupérer tous les appareils
-  recipes.forEach(element => {
-    devices = [...new Set([...devices, element.appliance])]
-  })
+  const devices = [...new Set(recipes.map(item => item.appliance))]
 
-  return value.length >= 3 ? devices : devices
+  return value.length >= 3 ? devices.filter(item => item.toLowerCase().includes(value)) : devices
 }
 
 export const getUstensils = (main = '', value = '') => {
@@ -33,5 +29,5 @@ export const getUstensils = (main = '', value = '') => {
     ustensils = [...new Set([...ustensils, ...element.ustensils])]
   })
 
-  return value.length >= 3 ? ustensils : ustensils
+  return value.length >= 3 ? ustensils.filter(item => item.toLowerCase().includes(value)) : ustensils
 }

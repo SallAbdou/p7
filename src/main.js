@@ -9,14 +9,17 @@ import {
 import { createCard, displayErrorMessage } from './templates/card'
 import { createItem } from './templates/dropdown.js'
 
+// eslint-disable-next-line prefer-const
+// export let activeTags = []
+
 const updateSearch = () => {
   const recipes = getRecipes(searchInput.value)
   displayRecipes(recipes)
   // Met à jour les dropdown en fonction du prompt dans la search bar
   displayDeleteButton(searchInput.value)
   updateCategorySearch('ingredients')
-
-  // TODO foreach category
+  updateCategorySearch('devices')
+  updateCategorySearch('ustensils')
 }
 
 const displayRecipes = data => {
@@ -36,10 +39,7 @@ const init = () => {
 }
 
 // Ajout de l'événement pour afficher la croix
-searchInput.addEventListener('input', () => {
-  updateSearch()
-  displayDeleteButton()
-})
+searchInput.addEventListener('input', updateSearch)
 
 const updateRecipesCounter = data => {
   recipesCounter.innerHTML = `${data.length} recettes`
@@ -47,6 +47,7 @@ const updateRecipesCounter = data => {
 
 const displayDeleteButton = () => searchInput.value ? deleteButton.classList.add('show') : deleteButton.classList.remove('show')
 const displayDeleteCategoryButton = (value, category) => {
+  console.log('displayDeleteCategoryButton - :', category, value)
   const deleteCategoryButton = document.querySelector(`#dropdown-${category} .delete`)
   deleteCategoryButton.style.display = value.length > 0 ? 'flex' : 'none'
 }
@@ -96,27 +97,27 @@ deleteUstensilsSearchBar.addEventListener('click', () => {
 
 const updateCategorySearch = category => {
   let data
-  let searchBarValue
 
   if (category === 'ingredients') {
-    searchBarValue = ingredientsSearchBar.value
-    data = getIngredients(searchInput.value, searchBarValue)
-  } else if (category === 'devices') {
-    searchBarValue = devicesSearchBar.value
-    data = getDevices(searchInput.value, searchBarValue)
-  } else if (category === 'ustensils') {
-    searchBarValue = ustensilsSearchBar.value
-    data = getUstensils(searchInput.value, searchBarValue)
+    data = getIngredients(searchInput.value, ingredientsSearchBar.value)
+  }
+  if (category === 'devices') {
+    data = getDevices(searchInput.value, devicesSearchBar.value)
+  }
+  if (category === 'ustensils') {
+    data = getUstensils(searchInput.value, ustensilsSearchBar.value)
   }
 
   // afficher le container de la categorie
   const categoryToDisplay = document.querySelector(`#dropdown-${category} .items-container`)
 
-  // Filtrer les données en fonction de searchBarValue
-  const filteredData = data.filter(item => item.toLowerCase().includes(searchBarValue.toLowerCase()))
+  // // Filtrer les données en fonction de searchBarValue
+  // const filteredData = data.filter(item => item.toLowerCase().includes(searchBarValue.toLowerCase()))
 
-  createItem(filteredData, categoryToDisplay, category)
-  displayDeleteCategoryButton(searchBarValue, category)
+  createItem(data, categoryToDisplay, category)
+  displayDeleteCategoryButton(ingredientsSearchBar.value, category)
+  displayDeleteCategoryButton(devicesSearchBar.value, category)
+  displayDeleteCategoryButton(ustensilsSearchBar.value, category)
 }
 
 init()
