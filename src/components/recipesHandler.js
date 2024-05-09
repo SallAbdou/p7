@@ -1,5 +1,5 @@
 import { recipes } from '../data/recipes'
-import { searchRecipes, filterByTags } from './testSearchBar'
+import { searchRecipes, filterByTags } from './search'
 import { state } from './state'
 
 export const getRecipes = (value = '') => {
