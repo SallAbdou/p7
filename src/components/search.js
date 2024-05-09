@@ -9,3 +9,13 @@ export const searchRecipes = (query, recipes) => {
     return titleFilter || descriptionFilter || ingredientFilter
   })
 }
+
+const isRecipeIncludesForEachTagIngredient = (recipe, tags) => tags.ingredients.every(ingredient => recipe.ingredients.map(element => element.ingredient).includes(ingredient))
+const isRecipeIncludesForEveryTagDevice = (recipe, tags) => tags.devices.every(device => recipe.appliance.includes(device))
+const isRecipeIncludesForEveryTagUstensil = (recipe, tags) => tags.ustensils.every(ustensil => recipe.ustensils.includes(ustensil))
+
+export const filterByTags = (recipes, tags) => recipes.filter(recipe =>
+  isRecipeIncludesForEachTagIngredient(recipe, tags) &&
+  isRecipeIncludesForEveryTagDevice(recipe, tags) &&
+  isRecipeIncludesForEveryTagUstensil(recipe, tags)
+)

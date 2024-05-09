@@ -1,7 +1,11 @@
 import { recipes } from '../data/recipes'
-import { searchRecipes } from './search'
+import { searchRecipes, filterByTags } from './search'
+import { state } from './state'
 
-export const getRecipes = (value = '') => value.length >= 3 ? searchRecipes(value, recipes) : recipes
+export const getRecipes = (value = '') => {
+  const result = value.length >= 3 ? searchRecipes(value, recipes) : recipes
+  return filterByTags(result, state.tags)
+}
 
 export const getIngredients = (main = '', value = '') => {
   const recipes = getRecipes(main)

@@ -8,10 +8,11 @@ import {
 } from './components/domLinker'
 import { createCard, displayErrorMessage } from './templates/card'
 import { createItem } from './templates/dropdown.js'
+import { state } from './components/state.js'
 
-// eslint-disable-next-line prefer-const
-// export let activeTags = []
-
+/**
+ * Update UI
+ */
 const updateSearch = () => {
   const recipes = getRecipes(searchInput.value)
   displayRecipes(recipes)
@@ -20,6 +21,8 @@ const updateSearch = () => {
   updateCategorySearch('ingredients')
   updateCategorySearch('devices')
   updateCategorySearch('ustensils')
+
+  console.log(state.tags)
 }
 
 const displayRecipes = data => {
@@ -114,7 +117,7 @@ const updateCategorySearch = category => {
   // // Filtrer les données en fonction de searchBarValue
   // const filteredData = data.filter(item => item.toLowerCase().includes(searchBarValue.toLowerCase()))
 
-  createItem(data, categoryToDisplay, category)
+  createItem(data, categoryToDisplay, category, updateSearch)
   displayDeleteCategoryButton(ingredientsSearchBar.value, category)
   displayDeleteCategoryButton(devicesSearchBar.value, category)
   displayDeleteCategoryButton(ustensilsSearchBar.value, category)

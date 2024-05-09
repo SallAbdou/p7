@@ -1,46 +1,47 @@
 import { tagContainer } from '../components/domLinker'
+import { state } from '../components/state'
 
-export const createItem = (data, parent, category) => {
+export const createItem = (data, parent, category, callback) => {
   parent.innerHTML = ''
 
-  const existingTags = Array.from(tagContainer.querySelectorAll('span')).map(tag => tag.innerHTML.toLowerCase())
-
   data.forEach(item => {
-    const itemName = item.toLowerCase()
+    const article = document.createElement('article')
+    article.innerHTML = item
 
-    // Vérifie si le tag existe déjà
-    if (!existingTags.includes(itemName)) {
-      const article = document.createElement('article')
-      article.innerHTML = item
+    // add event listener to create Tag
+    article.addEventListener('click', () => createTag(item, category, callback))
 
-      // TODO add event listener to create Tag
-      article.addEventListener('click', () => createTag(item, category))
-
-      parent.appendChild(article)
-
-      // Met à jour la liste des tags existants
-      existingTags.push(itemName)
-      console.log(itemName)
-    }
+    parent.appendChild(article)
   })
 }
 
-const createTag = (data, category) => {
-  const article = document.createElement('article')
-  const span = document.createElement('span')
-  span.innerHTML = data
-  article.appendChild(span)
-  const img = document.createElement('img')
-  img.src = '/icons/x.png'
-  img.alt = 'supprimer tag'
-  img.addEventListener('click', () => deleteTag(article, data, category))
+const createTag = (data, category, callback) => {
+  if (!state.tags[category].find(element => element === data)) {
+    // add tag to state
+    state.tags[category].push(data)
 
-  article.appendChild(img)
+    const article = document.createElement('article')
+    const span = document.createElement('span')
+    span.innerHTML = data
+    article.appendChild(span)
+    const img = document.createElement('img')
+    img.src = '/icons/x.png'
+    img.alt = 'supprimer tag'
+    // add event listener to delete tag on click
+    img.addEventListener('click', () => {
+      // remove tag from UI
+      article.remove()
+      // delete from state
+      state.tags[category] = state.tags[category].filter(item => item !== data)
+      // update UI
+      callback()
+    })
 
-  tagContainer.appendChild(article)
-}
+    article.appendChild(img)
 
-const deleteTag = (article, data, category) => {
-  article.remove()
-  console.log()
+    tagContainer.appendChild(article)
+
+    // update UI
+    callback()
+  }
 }
