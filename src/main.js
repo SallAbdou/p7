@@ -114,9 +114,6 @@ const updateCategorySearch = category => {
   // afficher le container de la categorie
   const categoryToDisplay = document.querySelector(`#dropdown-${category} .items-container`)
 
-  // // Filtrer les données en fonction de searchBarValue
-  // const filteredData = data.filter(item => item.toLowerCase().includes(searchBarValue.toLowerCase()))
-
   createItem(data, categoryToDisplay, category, updateSearch)
   displayDeleteCategoryButton(ingredientsSearchBar.value, category)
   displayDeleteCategoryButton(devicesSearchBar.value, category)
